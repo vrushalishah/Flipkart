@@ -10,32 +10,29 @@ public class TestcaseFourFilter4GbRam {
 
 	WebDriver driver = null;
 	Logger logger = Logger.getLogger(TestcaseFourFilter4GbRam.class);
-	TestcaseThreeMobileHomepage mobilePage = new TestcaseThreeMobileHomepage();
 
 	public WebDriver filter4GbRam(String url, String executionBrowser, String userName, String password) {
 
 		String fourGbRam = "4 GB RAM";
-
+		TestcaseThreeMobileHomepage mobilePage = new TestcaseThreeMobileHomepage();
 		try {
 
 			logger.debug("Checking for 4 GB Ram filter");
 			driver = mobilePage.mobileHomepage(url, executionBrowser, userName, password);
-			if(driver == null){
-				
-				System.out.println(" TestcaseFourFilter4GbRam  driver is null");
-			}
-			else{
-				
-				System.out.println("TestcaseFourFilter4GbRam Driver is not null");
+			if (driver == null) {
+
+				logger.debug(" TestcaseFourFilter4GbRam  driver is null");
+			} else {
+
+				logger.debug("TestcaseFourFilter4GbRam Driver is not null");
 			}
 			driver.findElement(By.xpath(StaticWebElementFinder.ramFilterFinder)).click();
 
-			System.out.println("Ram selected");
 			logger.debug(" Ram selected");
 			StaticWebElementFinder.scrollDown(driver);
 			logger.debug("page scrollig down");
 			driver.findElement(By.xpath(StaticWebElementFinder.fourbRamFilter)).click();
-			System.out.println(" 4GB Ram selected");
+
 			logger.debug("4 GB Ram selected");
 			for (int i = 1; i <= 2; i++) {
 
@@ -44,24 +41,22 @@ public class TestcaseFourFilter4GbRam {
 				String mobileItemDesc = driver.getPageSource();
 				if (mobileItemDesc.contains(fourGbRam)) {
 
-					System.out.println("element : " + i + "is of 4gb ram");
 					logger.debug("element : " + i + "is of 4gb ram");
 
 				}
 
 				else {
 
-					System.out.println("element is not of 4gb ram");
 					logger.error("element is not of 4gb ram");
-					
+
 				}
 			}
 			return driver;
-			
+
 		} catch (Exception e) {
 
 			logger.error(e.getMessage());
-			
+
 		}
 		return driver;
 

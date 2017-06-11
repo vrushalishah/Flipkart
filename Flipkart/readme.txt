@@ -8,18 +8,23 @@ Project Flow :
 2)I have created "ConfigReader" class and inside this class I have created a method name "configParameterReader" this method will return  a list of parameters based on selected environment and browser type .on the basis of selected environment user will get "URL" (either of stage ,uat or of production) and browser type (either chrome or firefox)
 
 3)user can able to change the login credential from "Config.properties" file in this file add your username and password .
-as off now I have created a dummy account and default  I have added those credentialto config file .
+as off now I have created a dummy account and default  I have added those credential to config file .
 below are the login credential for dummy account on flipkart for testing purpose :
  USERNAME : 9975719261
  PASSWORD : vrush2112
 you can able to change these value.
 
-4)Once your parameters are ready you can able execute all testcases from "MainExecution" class .
+4)Once your parameters are ready you can able execute all test cases from "MainExecution" class .
 for that you need run the class a TestNg class .
 
 5)This class will read parameters from config file pass these parameters to methos I have written for every testcase in different class (Page Object Class)
 
-6)you will be able to see the testcases success and failure result on console.
+6)you will be able to see the test cases success and failure result on log file and also at the end on console.
+also user can able to see the test case result in Excel file 
+
+Path for Excel file of Testng Result :Project_path/Flipkart/SaveTestNGResultToExcel.xls
+
+it is getting generated same level as pom.xml is store insie project
 
 7)You can able to see all errors and debugging steps in the Log file which I have created using "Log4j" this file will be getting generated where user will save the Project .
 
@@ -37,6 +42,7 @@ System Requirenment :
 
 1)Java installed on machine (any version e.g -jdk 1.7)
 2)Firefox 46.0.1 (This version of firefox is require to view the results)
+3)Chrome version 52.0.2783.82 version
 3)After downloading the project from git :
 
 To download project from git use below credential of git account :
