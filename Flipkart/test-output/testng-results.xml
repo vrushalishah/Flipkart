@@ -2,38 +2,16 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="24208" started-at="2017-06-09T19:33:26Z" finished-at="2017-06-09T19:33:51Z">
+  <suite name="Default suite" duration-ms="177188" started-at="2017-06-11T08:26:45Z" finished-at="2017-06-11T08:29:42Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="24208" started-at="2017-06-09T19:33:26Z" finished-at="2017-06-09T19:33:51Z">
-      <class name="automationFramework.AccountLogin">
-        <test-method status="PASS" signature="TestcaseOneAccountLogin(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:automationFramework.AccountLogin@3632be31]" name="TestcaseOneAccountLogin" duration-ms="24179" started-at="2017-06-10T01:03:26Z" data-provider="ParamProvider" finished-at="2017-06-10T01:03:51Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[http://www.flipkart.com]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Firefox]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[9975719261]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[vrush2112]]>
-              </value>
-            </param>
-          </params>
+    <test name="Default test" duration-ms="177188" started-at="2017-06-11T08:26:45Z" finished-at="2017-06-11T08:29:42Z">
+      <class name="automationFramework.MainExecution">
+        <test-method status="PASS" signature="testcaseEight()[pri:0, instance:automationFramework.MainExecution@5383967b]" name="testcaseEight" duration-ms="177141" started-at="2017-06-11T13:56:45Z" finished-at="2017-06-11T13:59:42Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- TestcaseOneAccountLogin -->
-      </class> <!-- automationFramework.AccountLogin -->
+        </test-method> <!-- testcaseEight -->
+      </class> <!-- automationFramework.MainExecution -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
