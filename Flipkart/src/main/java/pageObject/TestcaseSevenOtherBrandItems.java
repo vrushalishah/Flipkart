@@ -3,6 +3,7 @@ package pageObject;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import automationFramework.StaticWebElementFinder;
 
@@ -15,12 +16,29 @@ public class TestcaseSevenOtherBrandItems {
 
 		try {
 			TestcaseFourFilter4GbRam filterRam = new TestcaseFourFilter4GbRam();
-
 			logger.debug("Searching for items of other brands");
 			try {
 			driver = filterRam.filter4GbRam(url, executionBrowser, userName, password);
+			StaticWebElementFinder.scrollDown(driver);
+			System.out.println("Finding brand check");
 			
-			driver.findElement(By.xpath(StaticWebElementFinder.motorolaBrandFinder)).click();
+			logger.debug("Searching for moto keyword");
+			
+			// driver.manage().timeouts().implicitlyWait(3000,
+			// TimeUnit.MILLISECONDS);
+			// Thread.sleep(3000);
+			StaticWebElementFinder.scrollDown(driver);
+			WebElement motoCheckBox = null;
+			// Thread.sleep(3000);
+
+			try {
+				motoCheckBox = driver.findElement(By.xpath(StaticWebElementFinder.motorolaBrandFinder));
+				motoCheckBox.click();
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		
 			
 			}catch(Exception e){
 				e.printStackTrace();
