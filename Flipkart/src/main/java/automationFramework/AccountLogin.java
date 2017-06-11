@@ -40,12 +40,7 @@ public class AccountLogin {
 	String motog5PlusItemFinder = ".//*[@id='container']/div/div[2]/div[2]/div/div[2]/div/div[3]/div[1]/div/div[2]/a/div[2]/div[1]/div[1]";
 	String goToCartButtonFinder = ".//*[@id='container']/div/div[2]/div/div/div[1]/div/div[1]/div/div/div[2]/ul/li[1]/button";
 
-	@DataProvider(name = "ParamProvider")
-	public static Object[][] dataProvider() {
-
-		return ConfigReader.configParameterReader("stage", "Firefox");
-
-	}
+	
 
 	@Test(dataProvider = "ParamProvider", dataProviderClass = AccountLogin.class)
 	public void TestcaseOneAccountLogin(String url, String executionBrowser,String userName,String password) {
@@ -241,7 +236,7 @@ public class AccountLogin {
 		}
 	}
 	@Test(dataProvider = "ParamProvider", dataProviderClass = AccountLogin.class)
-	public void TestcaseSevenOtherBrandTems(String url, String executionBrowser,String userName,String password) {
+	public void TestcaseSevenOtherBrandItems(String url, String executionBrowser,String userName,String password) {
 
 		try {
 			TestcaseFourFilter4GbRam(url,executionBrowser,userName,password);

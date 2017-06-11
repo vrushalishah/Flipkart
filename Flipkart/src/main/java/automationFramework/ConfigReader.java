@@ -2,28 +2,31 @@ package automationFramework;
 
 import java.io.File;
 import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
 import org.apache.log4j.Logger;
-import org.testng.annotations.Test;
 
 public class ConfigReader {
 	static  String serverurl = null;
 	static String browserType = null;
 	static  String username = null;
 	static String password = null;
-	Logger logger = Logger.getLogger(AccountLogin.class);
+	static Logger logger = Logger.getLogger(ConfigReader.class);
 	
 	
-	public  static Object[][] configParameterReader(String env , String browser){
-		System.out.println(1);
-		File configFile = new File("/home/prospera-user12/Desktop/Flipkart/src/main/resources/config.properties");
-	
+	public  static List<String> configParameterReader(String env , String browser){
+		
+		File configFile = new File("/home/prospera-user12/git/Flipkart/Flipkart/src/main/resources/config.properties");
+		logger.debug("Accessing Configuratio File to read Required parameters");
+		List<String> parameters =new ArrayList<String>();							
 	try {
 	    FileReader reader = new FileReader(configFile);
 	    Properties props = new Properties();
 	    props.load(reader);
-	     username = props.getProperty("USERNAME");
+	    logger.debug("Reading Configuration file");
+	    username = props.getProperty("USERNAME");
 	    password = props.getProperty("PASSWORD");
 	 
 	    if(env.equalsIgnoreCase("stage")){
@@ -44,7 +47,7 @@ public class ConfigReader {
 	    	browserType = props.getProperty("CHROME_BROWSER");
 		    	
 	    }
-	   
+	   logger.debug("Parameters are available");
 	    
 	   
 	    System.out.print("serverurl name is: " + serverurl);
@@ -53,12 +56,21 @@ public class ConfigReader {
 	    System.out.print("password name is: " + password);
 	    
 	  
-	    reader.close();
-	    return  new Object[][]{ {serverurl, browserType,username,password}}; 
+	     reader.close();
+	     parameters.add(serverurl);
+	     parameters.add(browserType);
+	     parameters.add(username);
+	     parameters.add(password);
+	     
+	     logger.debug("Parameters are added to list");
+	     logger.debug("Parameters sent to calling function");
+	     return parameters;
+	     
 	} catch (Exception e) {
-	    e.printStackTrace();
+	    
+	    
 	    
 	}
-	 return  new Object[][] { {null, null,null,null}};
+	 return null;
 	}
 }
