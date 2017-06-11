@@ -34,6 +34,7 @@ public class TestcaseEightMotoG5PlusDetail {
 		
 			logger.debug("Moto 5 plus item selected");
 			// Switch to new window opened
+			try{
 			for (String winHandle : driver.getWindowHandles()) {
 				driver.switchTo().window(winHandle);
 				
@@ -41,20 +42,16 @@ public class TestcaseEightMotoG5PlusDetail {
 				System.out.println("Page Title is :" + driver.getTitle());
 
 				logger.debug("Moto 5 plus item selected");
-				String text = "Moto G5 Plus (Lunar Grey, 32 GB)";
+				String tempTextGoToCart = "GO TO CART";
+				String tempTextAddToCart = "ADD TO CART";
 				String temp = driver.getPageSource();
 
-				if (temp.contains(text)) {
+				if (temp.contains(tempTextGoToCart)||temp.contains(tempTextAddToCart)) {
 
 					System.out.println("New Tab is accessible");
 					logger.debug("New Tab is accessible");
-					try{
-						System.out.println(driver.findElement(By.id("pincodeInputId")).getText()+"  id of pincode");
-					}catch(Exception e){
-						e.printStackTrace();
-					}
-					System.out.println("nikhil");
-					
+					String workingDir = System.getProperty("user.dir");
+				
 					driver.findElement(By.id("pincodeInputId")).sendKeys(pincode);
 					logger.debug("Pincode enterd");
 					StaticWebElementFinder.scrollDown(driver);
@@ -63,7 +60,7 @@ public class TestcaseEightMotoG5PlusDetail {
 					System.out.println("Page Title is  :" + driver.getTitle());
 					System.out.println("Product is add to cart");
 					logger.debug("Item added to cart..");
-					StaticWebElementFinder.captureScreenShot(driver, "../ScreenShot/MobileAddToCartCaputre.png");
+					StaticWebElementFinder.captureScreenShot(driver,"../ScreenShot/MobileAddToCartCaputre.png");
 					logger.debug("Screenshot has been taken");
 					System.out.println("Screeen shot Taken");
 
@@ -74,6 +71,11 @@ public class TestcaseEightMotoG5PlusDetail {
 
 				}
 			}
+				}catch(Exception e){
+					
+					e.printStackTrace();
+				}
+			
 			return driver;
 
 		} catch (Exception e) {

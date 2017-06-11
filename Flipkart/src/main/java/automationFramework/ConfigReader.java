@@ -15,10 +15,11 @@ public class ConfigReader {
 	static String password = null;
 	static Logger logger = Logger.getLogger(ConfigReader.class);
 	
-	
+	File file = new File(getClass().getClassLoader().getResource("config.properties").getFile());
 	public  static List<String> configParameterReader(String env , String browser){
+		ConfigReader configReader= new ConfigReader();
 		
-		File configFile = new File("/home/prospera-user12/git/Flipkart/Flipkart/src/main/resources/config.properties");
+		File configFile = new File(configReader.file.getAbsolutePath());
 		logger.debug("Accessing Configuratio File to read Required parameters");
 		List<String> parameters =new ArrayList<String>();							
 	try {

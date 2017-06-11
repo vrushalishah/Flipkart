@@ -74,19 +74,20 @@ public class MainExecution {
 		motoItems.motoItems(parameters.get(0), parameters.get(1), parameters.get(2), parameters.get(3));
 
 	}
-
+*/
 	@Test
 	public void testcaseSeven() {
 
 		otherBrand.otherBrandItems(parameters.get(0), parameters.get(1), parameters.get(2), parameters.get(3));
 
 	}
-*/
-	@Test
+	
+	
+	/*@Test
 	public void testcaseEight() {
 
 		motoG5DetailView.motoG5PlusDetail(parameters.get(0), parameters.get(1), parameters.get(2), parameters.get(3));
 
-	}
+	}*/
 
 }
