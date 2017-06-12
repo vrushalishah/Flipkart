@@ -11,12 +11,12 @@ public class TestcaseEightMotoG5PlusDetail {
 	WebDriver driver = null;
 	Logger logger = Logger.getLogger(TestcaseSixMotoItems.class);
 
-	TestcaseFiveMotorolaCheckBoxVisibility motorolaSelect = new TestcaseFiveMotorolaCheckBoxVisibility();
+	
 
 	public WebDriver motoG5PlusDetail(String url, String executionBrowser, String userName, String password) {
 
 		String pincode = "411030";
-
+		TestcaseFiveMotorolaCheckBoxVisibility motorolaSelect = new TestcaseFiveMotorolaCheckBoxVisibility();
 		try {
 
 			logger.debug("Motorola Detail View");
@@ -24,7 +24,7 @@ public class TestcaseEightMotoG5PlusDetail {
 
 			if (driver == null) {
 
-				System.out.println("driver is null");
+				logger.debug("driver is null");
 			}
 
 			driver.findElement(By.xpath(StaticWebElementFinder.motorolaBrandFinder)).click();
@@ -33,47 +33,46 @@ public class TestcaseEightMotoG5PlusDetail {
 			driver.findElement(By.xpath(StaticWebElementFinder.motog5PlusItemFinder)).click();
 		
 			logger.debug("Moto 5 plus item selected");
+			
 			// Switch to new window opened
 			try{
 			for (String winHandle : driver.getWindowHandles()) {
 				driver.switchTo().window(winHandle);
-				
-				//driver.get(driver.getCurrentUrl());
-				System.out.println("Page Title is :" + driver.getTitle());
 
 				logger.debug("Moto 5 plus item selected");
 				String tempTextGoToCart = "GO TO CART";
 				String tempTextAddToCart = "ADD TO CART";
 				String temp = driver.getPageSource();
-
+				
 				if (temp.contains(tempTextGoToCart)||temp.contains(tempTextAddToCart)) {
 
-					System.out.println("New Tab is accessible");
+					
 					logger.debug("New Tab is accessible");
-					String workingDir = System.getProperty("user.dir");
-				
+					
 					driver.findElement(By.id("pincodeInputId")).sendKeys(pincode);
 					logger.debug("Pincode enterd");
 					StaticWebElementFinder.scrollDown(driver);
 					driver.findElement(By.xpath(StaticWebElementFinder.goToCartButtonFinder)).click();
 					logger.debug("Item Added in Cart is in process");
-					System.out.println("Page Title is  :" + driver.getTitle());
-					System.out.println("Product is add to cart");
+					logger.debug("Page Title is  :" + driver.getTitle());
+					logger.debug("Product is add to cart");
 					logger.debug("Item added to cart..");
 					StaticWebElementFinder.captureScreenShot(driver,"../ScreenShot/MobileAddToCartCaputre.png");
 					logger.debug("Screenshot has been taken");
-					System.out.println("Screeen shot Taken");
-
+					logger.debug("Screeen shot Taken");
+					driver.close();
+					logger.debug("Sub window is closed");
+					driver.switchTo().window(winHandleBefore); 
+					logger.debug("Switched to Parent Window");
 				} else {
 
-					System.out.println("New Tab is not accesssible");
 					logger.error("New Tab is not accesssible");
 
 				}
 			}
 				}catch(Exception e){
 					
-					e.printStackTrace();
+					logger.error(e.getMessage());
 				}
 			
 			return driver;

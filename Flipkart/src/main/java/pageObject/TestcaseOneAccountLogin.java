@@ -55,7 +55,6 @@ public class TestcaseOneAccountLogin {
 				driver.findElement(By.xpath(StaticWebElementFinder.loginFinder)).submit();
 				logger.debug("Login successfully");
 
-				System.out.println("Login Successfully");
 			}
 
 		} catch (Exception e) {

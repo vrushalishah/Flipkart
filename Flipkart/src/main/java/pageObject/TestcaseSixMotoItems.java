@@ -12,13 +12,14 @@ public class TestcaseSixMotoItems {
 	WebDriver driver = null;
 	Logger logger = Logger.getLogger(TestcaseSixMotoItems.class);
 	
-	TestcaseFiveMotorolaCheckBoxVisibility motorolaSelect = new TestcaseFiveMotorolaCheckBoxVisibility();
 	
 	
 	public WebDriver motoItems(String url, String executionBrowser,String userName,String password) {
 
 		try {
 			
+
+			TestcaseFiveMotorolaCheckBoxVisibility motorolaSelect = new TestcaseFiveMotorolaCheckBoxVisibility();
 			logger.debug("MotoItem method called");
 			driver = motorolaSelect.motorolaCheckBoxVisibility(url,executionBrowser,userName,password);
 			try{
@@ -39,7 +40,6 @@ public class TestcaseSixMotoItems {
 				if (motoroloItemDesc.contains("Moto")) {
 
 					logger.debug("Motorola mobile items : "+ i+ "present");
-					System.out.println("Motorola mobile items"+ i +" are present");
 				}
 			}
 			return driver;
@@ -47,7 +47,6 @@ public class TestcaseSixMotoItems {
 				logger.error(e.getMessage());
 			}
 
-		
 		return null;
 	}
 }
