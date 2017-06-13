@@ -43,7 +43,7 @@ public class TestcaseThreeMobileHomepage {
 
 			logger.error(e.getMessage());
 		}
-		return null;
+		return driver;
 	}
 
 }

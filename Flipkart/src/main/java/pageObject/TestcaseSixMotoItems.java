@@ -47,6 +47,6 @@ public class TestcaseSixMotoItems {
 				logger.error(e.getMessage());
 			}
 
-		return null;
+		return driver;
 	}
 }

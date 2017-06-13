@@ -27,7 +27,7 @@ import pageObject.TestcaseThreeMobileHomepage;
 import pageObject.TestcaseTwoTopMenu;
 
 public class MainExecution {
-	List<String> parameters = ConfigReader.configParameterReader("stage", "Firefox");
+	List<String> parameters = ConfigReader.configParameterReader("stage", "Chrome");
 	WebDriver driver = null;
 
 	public String workingDir;
@@ -59,7 +59,7 @@ public class MainExecution {
 		}
 	}
 
-	@Test
+@Test
 	public void testcaseEight() {
 		TestcaseEightMotoG5PlusDetail motoG5DetailView = new TestcaseEightMotoG5PlusDetail();
 		driver = motoG5DetailView.motoG5PlusDetail(parameters.get(0), parameters.get(1), parameters.get(2),
@@ -133,7 +133,7 @@ public class MainExecution {
 		driver.close();
 		TestNGResults.put("8", new Object[] { 9d, "Mototrola Items find", "Only Motorola Iems are getting display", "Pass" });
 	}
-
+	
 	@Test
 	public void testcaseSeven() {
 		TestcaseSevenOtherBrandItems otherBrand = new TestcaseSevenOtherBrandItems();
@@ -176,7 +176,6 @@ public class MainExecution {
 			e.printStackTrace();
 		}
 		// close the browser
-		driver.close();
-		driver.quit();
+		
 	}
 }

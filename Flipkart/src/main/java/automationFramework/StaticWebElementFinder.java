@@ -1,6 +1,7 @@
 package automationFramework;
 
 import java.io.File;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
@@ -39,9 +40,15 @@ public class StaticWebElementFinder {
 
 	//Method to accessing mobile home page
 	public static void openMobileHomepage(WebDriver driver) {
-		
+		try{
+			Thread.sleep(5000);
 		driver.findElement(By.xpath(electronicMenuFinder)).click();
-		driver.findElement(By.xpath(submenuMobileFinder)).click();	
+		driver.manage().timeouts().implicitlyWait(3000, TimeUnit.MILLISECONDS);
+		driver.findElement(By.xpath(submenuMobileFinder)).click();
+		}catch(Exception e){
+			
+			e.printStackTrace();
+		}
 	}
 	
 	//Method to capture screenshot

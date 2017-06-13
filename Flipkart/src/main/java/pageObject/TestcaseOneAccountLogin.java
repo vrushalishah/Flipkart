@@ -1,14 +1,13 @@
 package pageObject;
 
+import io.github.bonigarcia.wdm.ChromeDriverManager;
+
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
 
-import automationFramework.ConfigReader;
 import automationFramework.StaticWebElementFinder;
 
 public class TestcaseOneAccountLogin {
@@ -35,7 +34,10 @@ public class TestcaseOneAccountLogin {
 			} else {
 				if (executionBrowser.equalsIgnoreCase("Chrome")) {
 
+					ChromeDriverManager.getInstance().setup();
+					
 					driver = new ChromeDriver();
+					driver.manage().window().maximize();
 					logger.debug("Chrome Browser is Executed");
 
 				} else if (executionBrowser.equalsIgnoreCase("Firefox")) {
@@ -45,7 +47,7 @@ public class TestcaseOneAccountLogin {
 
 				// Tescase to login to flipkart site
 				
-
+				try{
 				driver.get(url);
 				logger.debug("Flipkart Site is Accessible");
 				driver.findElement(By.xpath(StaticWebElementFinder.signInMenuFinder)).click();
@@ -54,7 +56,11 @@ public class TestcaseOneAccountLogin {
 				logger.debug("Entered Login credential");
 				driver.findElement(By.xpath(StaticWebElementFinder.loginFinder)).submit();
 				logger.debug("Login successfully");
-
+				}catch(Exception e){
+					e.printStackTrace();
+					
+				}
+				return driver;
 			}
 
 		} catch (Exception e) {

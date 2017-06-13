@@ -5,7 +5,8 @@
     <classes>
       <class name="automationFramework.MainExecution">
         <methods>
-          <include name="testcaseEight"/>
+          <include name="suiteSetUp"/>
+          <include name="testcaseThree"/>
           <include name="suiteTearDown"/>
         </methods>
       </class> <!-- automationFramework.MainExecution -->
